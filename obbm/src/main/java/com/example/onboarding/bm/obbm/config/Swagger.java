@@ -1,4 +1,4 @@
-package com.example.onboarding.bm.config;
+package com.example.onboarding.bm.obbm.config;
 
 import java.util.Collections;
 
@@ -14,18 +14,17 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
-@EnableSwagger2
 public class Swagger {
-	
-	@Bean
-	public Docket api() {
-		return new Docket(DocumentationType.SWAGGER_2)
-				.select()
-				.apis(RequestHandlerSelectors.any())
-				.paths(PathSelectors.any())
-				.build()
-				.apiInfo(apiInfo());
-	}
+
+    @Bean
+    Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.any())
+                .paths(PathSelectors.any())
+                .build()
+                .apiInfo(apiInfo());
+    }
 	
 	private ApiInfo apiInfo() {
 		return new ApiInfo(
